@@ -14,4 +14,4 @@ get_data_file ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh37/weekly/clinvar_2
 get_references_and_chain_37_38
 
 # lift over using the 3 tools
-liftover_do " AF_ESP AF_EXAC AF_TGP" ""
+liftover_do " AF_ESP AF_EXAC AF_TGP" " DUMMY"
