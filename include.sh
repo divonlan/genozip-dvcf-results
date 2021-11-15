@@ -270,6 +270,15 @@ liftover_do() # $1=LiftoverVcf --TAGS_TO_REVERSE $2=LiftoverVcf --TAGS_TO_DROP (
     fi
 }
 
+# Executables
+genozip_path=/localscratch/divon/genozip/
+genozip="${genozip_path}genozip --echo"
+genounzip="${genozip_path}genounzip --echo"
+genocat=${genozip_path}genocat
+gatk=gatk
+crossmap=CrossMap.py
+
+# Check prerequisites
 prerequisite genozip "See installation instructions here: https://genozip.com/installing.html"
 prerequisite gatk
 prerequisite CrossMap.py
@@ -279,29 +288,11 @@ prerequisite wget
 prerequisite curl
 prerequisite gzip
 
-# Check prerequisites
-if ! `command -v genozip >& /dev/null`; then 
-    echo "Error: Cannot find genozip. It is required. See installation instructions here: https://genozip.com/installing.html"
+genozip_version=`genozip -V | cut -d= -f2 | cut -d. -f1`
+if (( $genozip_version < 13 )); then 
+    echo "Error: Required genozip version 13 or higher."
     exit 1
 fi
-
-if ! `command -v samtools >& /dev/null`; then 
-    echo "Error: Cannot find samtools. It is required."
-    exit 1
-fi
-
-if ! `command -v gatk >& /dev/null`; then 
-    echo "Error: Cannot find gatk. It is required."
-    exit 1
-fi
-
-# Executables
-genozip_path=/localscratch/divon/genozip/
-genozip="${genozip_path}genozip --echo"
-genounzip="${genozip_path}genounzip --echo"
-genocat=${genozip_path}genocat
-gatk=gatk
-crossmap=CrossMap.py
 
 # Paths
 shared=shared
