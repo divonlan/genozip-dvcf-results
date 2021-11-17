@@ -211,6 +211,7 @@ analysis() # $1=tool $2=tool_vcf $3=tool_rejects $4=dvcf $5=analysis
         if (( $failed > 0 )); then echo "Failed $st: $failed"; fi
         
     done | tee -a $5
+    echo
 }
 
 prerequisite() # $1=excutable name $2=additional message (optional)
