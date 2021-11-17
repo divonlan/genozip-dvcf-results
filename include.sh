@@ -204,8 +204,8 @@ analysis() # $1=tool $2=tool_vcf $3=tool_rejects $4=dvcf $5=analysis
 
     printf "data=$name primary=$prim luft=$luft tool=$1\n" | tee $5
     for st in $ostatuses ; do
-        local lifted=`grep $st $2 | wc -l`
-        local failed=`grep $st $3 | wc -l`
+        local lifted=`grep -w $st $2 | wc -l`
+        local failed=`grep -w $st $3 | wc -l`
         
         if (( $lifted > 0 )); then echo "Lifted $st: $lifted"; fi
         if (( $failed > 0 )); then echo "Failed $st: $failed"; fi
