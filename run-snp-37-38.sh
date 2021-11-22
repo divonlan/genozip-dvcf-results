@@ -14,7 +14,7 @@ get_snp_37
 get_references_and_chain_37_38
 
 # lift over using the 3 tools
-liftover_do " AF MLEAF" " AC"
+liftover_do " AF MLEAF" " AC MLEAC"
 
 # delete 38 data file as we have now generate a source DVCF
 rm -f $shared/snp.38.vcf

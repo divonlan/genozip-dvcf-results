@@ -100,7 +100,7 @@ get_reference() # $1=remote_ref $2=local_ref $3=fai $4=genozip $5=gatk_dict
     
     if [ ! -f $4 ]; then
         echo "Create Genozip reference file $4"
-        $genozip --make-reference $2 || exit 1
+        $genozip --make-reference $2 -o $4 || exit 1
     fi
 }
 
@@ -124,7 +124,7 @@ get_GRCh38() # $1=[PRIM|LUFT]
     GRCh38_remote=ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/technical/reference/GRCh38_reference_genome/GRCh38_full_analysis_set_plus_decoy_hla.fa
     GRCh38=$shared/GRCh38_full_analysis_set_plus_decoy_hla.fa.gz
     GRCh38_fai=$shared/GRCh38_full_analysis_set_plus_decoy_hla.fa.gz.fai
-    GRCh38_genozip=$shared/GRCh38_full_analysis_set_plus_decoy_hla.ref.genozip
+    GRCh38_genozip=$shared/GRCh38.ref.genozip
     GRCh38_gatk_dict=$shared/GRCh38_full_analysis_set_plus_decoy_hla.dict
 
     get_reference $GRCh38_remote $GRCh38 $GRCh38_fai $GRCh38_genozip $GRCh38_gatk_dict
@@ -152,7 +152,7 @@ get_chm13()
 }
 
 get_chain() # $1=remote-chain (with .gz) $2=local-matched-chain (.match.chain) $3=local-matched-genozip-chain (.match.chain.genozip) 
-                 # $4=prim_ref_genozip $5=luft_ref_genozip
+            # $4=prim_ref_genozip $5=luft_ref_genozip
 {
     downloaded=$shared/$(basename $remote_chain)
 
