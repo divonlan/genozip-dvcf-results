@@ -1,4 +1,4 @@
-# (C) 2021 Divon Lan
+# (C) 2021-2022 Divon Lan
 
 progress() ## print progress line
 {
@@ -272,10 +272,10 @@ liftover_do() # $1=LiftoverVcf --TAGS_TO_REVERSE $2=LiftoverVcf --TAGS_TO_DROP (
 }
 
 # Executables
-genozip_path=/localscratch/divon/genozip/
+genozip_path="" # modify this to the directory where Genozip executables reside (including a terminal /), if this directory is not in $PATH
 genozip="${genozip_path}genozip --echo"
 genounzip="${genozip_path}genounzip --echo"
-genocat=${genozip_path}genocat
+genocat="${genozip_path}genocat"
 gatk=gatk
 crossmap=CrossMap.py
 

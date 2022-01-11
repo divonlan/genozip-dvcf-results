@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# (C) 2021 Divon Lan
+# (C) 2021-2022 Divon Lan
 
 # Names
 name=clinvar

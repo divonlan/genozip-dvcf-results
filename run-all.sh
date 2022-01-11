@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# (C) 2021 Divon Lan
+# (C) 2021-2022 Divon Lan
 
 run-snp-37-38.sh
 run-indel-37-38.sh
