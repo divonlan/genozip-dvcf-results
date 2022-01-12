@@ -168,7 +168,7 @@ get_chain() # $1=remote-chain (with .gz) $2=local-matched-chain (.match.chain) $
 
     if [ ! -f $2 ]; then
         progress "Creating $2 - a chain file with contig names matching the reference files"
-        $genounzip $3 || exit 1
+        $genounzip -f $3 || exit 1
     fi
 }
 
